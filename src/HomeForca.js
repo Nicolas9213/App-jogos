@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { View, StyleSheet, Text, TextInput, Button } from "react-native-web";
+import { View, StyleSheet, Text, TextInput, Button } from "react-native";
 
 export default function HomeForca({
     changeScreen, palavraForca, setPalavraForca }) {
@@ -11,12 +10,12 @@ export default function HomeForca({
             }
         }
 
-        const goBack = () => {
+        const voltar = () => {
             changeScreen("home");
         }
         return (
             <View style={styles.container}>
-                <Button color="green" title='Voltar' onPress={goBack}/>
+                <Button color="green" title='Voltar' onPress={voltar}/>
 
                 <Text>A palavra para o jogo será: {palavraForca} </Text>
                 <TextInput placeholder='Palavra' value={palavraForca} onChangeText={setPalavraForca} style={styles.input}/>

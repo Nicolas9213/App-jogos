@@ -19,7 +19,7 @@ export default function JogoVelha({
     checkWin();
   }, [states])
 
-  const goBack = () => {
+  const voltar = () => {
     changeScreen("homeVelha")
   }
 
@@ -53,7 +53,7 @@ export default function JogoVelha({
   const endPlay = (message) => {
     alert(message);
     setStates(startValues);
-    goBack();
+    voltar();
   }
 
   const checkWin = () => {
@@ -91,7 +91,8 @@ export default function JogoVelha({
 
   return (
     <View>
-      <Button color="green" title="Voltar" onPress={goBack} />
+      <Text style={styles.title}>Jogo da Velha</Text>
+      <Button color="green" title="Voltar" onPress={voltar} />
 
       <Text>
         É a vez do jogador: {getPlayerName()} - {player}
@@ -125,6 +126,10 @@ const styles = StyleSheet.create({
   line: {
     display: "flex",
     flexDirection: "row"
+  },
+  title: {
+    fontSize: 30,
+    textAlign: "center",
   },
   buttonGame: {
     backgroundColor: 'green',

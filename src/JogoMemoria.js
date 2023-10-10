@@ -7,7 +7,7 @@ export default function Memoria({ changeScreen, jogador1, jogador2 }) {
     const [jogador, setJogador] = useState(jogador1);
     const [pares, setPares] = useState([0, 0]);
 
-    const goBack = () => {
+    const voltar = () => {
         changeScreen("homeVelha")
       }
 
@@ -132,9 +132,8 @@ export default function Memoria({ changeScreen, jogador1, jogador2 }) {
 
     return (
         <View style={styles.container}>
-            <Button title="Voltar" color="green" onPress={goBack} />
-            <Text>Jogo da Memória</Text>
-            <Text style={jogador == jogador1 ? styles.jogador1 : styles.jogador2}>Vez de: {jogador}</Text>
+            <Text style={styles.title}>Jogo da Memória</Text>
+            <Text style={jogador == jogador1 ? styles.jogador1 : styles.jogador2}>Quem joga é: {jogador}</Text>
             <Text style={styles.jogador1}>{jogador1}: {pares[0]}</Text>
             <Text style={styles.jogador2}>{jogador2}: {pares[1]}</Text>
             <View>
@@ -159,21 +158,27 @@ export default function Memoria({ changeScreen, jogador1, jogador2 }) {
                                     </Pressable>
                                 ))}
                             </View>
+                            
                         )
                     })
                 }
             </View>
+            <Button title="Voltar" color="green" onPress={voltar} />
         </View>
+        
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#DEE5E5',
+        backgroundColor: '#ffffff',
         alignItems: 'center',
         justifyContent: 'center',
         width: "100%",
+    },
+    title: {
+        fontSize: 30,
     },
     row: {
         display: "flex",
@@ -183,37 +188,37 @@ const styles = StyleSheet.create({
         width: 40,
         height: 40,
         margin: 2,
-        borderRadius: 5,
+        borderRadius: 1,
         display: "flex",
         justifyContent: "center",
-        backgroundColor: "#9DC5BB",
+        backgroundColor: "#20B2AA",
         alignItems: "center",
     },
     cardGameJog1: {
         width: 40,
         height: 40,
         margin: 2,
-        borderRadius: 5,
+        borderRadius: 1,
         display: "flex",
         justifyContent: "center",
-        backgroundColor: "#B83D16",
+        backgroundColor: "#7FFFD4",
         alignItems: "center",
     },
     cardGameJog2: {
         width: 40,
         height: 40,
         margin: 2,
-        borderRadius: 5,
+        borderRadius: 1,
         display: "flex",
         justifyContent: "center",
-        backgroundColor: "#066B52",
+        backgroundColor: "#DC143C",
         alignItems: "center",
     },
     cardGameDisabled: {
         width: 40,
         height: 40,
         margin: 2,
-        borderRadius: 5,
+        borderRadius: 1,
         display: "flex",
         justifyContent: "center",
         backgroundColor: "lightgrey",
@@ -224,9 +229,9 @@ const styles = StyleSheet.create({
         color: "#fff",
     },
     jogador1: {
-        color: "#B83D16",
+        color: "#000000",
     },
     jogador2: {
-        color: "#066B52",
+        color: "#000000",
     }
 });

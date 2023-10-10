@@ -16,13 +16,13 @@ import { StyleSheet, Text, View, TextInput, Button }
     }
 
   }
-  const goBack = () => {
+  const voltar = () => {
     changeScreen("home");
 }
 
   return (
     <View style={styles.container}>
-      <Button color="green" title="Voltar" onPress={goBack} />
+      <Button color="green" title="Voltar" onPress={voltar} />
       <Text>Selecione os jogadores: </Text>
       <Text>O nome do jogador 1 é: {jogador1}</Text>
       <TextInput style={styles.input} placeholder='Jogador 1' value={jogador1} onChangeText={setJogador1} />

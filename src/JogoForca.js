@@ -14,8 +14,6 @@ import { StyleSheet, Text, View, TextInput, Button, Image }
 ];
   
   export default function JogoForca ({ changeScreen, palavraForca, setPalavraForca }) {
-    const [tentativa, setTentativa] = useState('');
-    const [erros, setErros] = useState(0);
 
     const valorInicial = palavraForca.split("").map((letra) => {
         return letra === " " ? " " : " _ ";
@@ -27,7 +25,7 @@ import { StyleSheet, Text, View, TextInput, Button, Image }
     const [vidas, setVidas] = useState(0);
     const [imgForca, setImgForca] = useState(imgsForca[0]);
 
-    const goBack = () => {
+    const voltar = () => {
         setPalavraForca(palavraForca);
         changeScreen("homeForca");
     }
@@ -35,8 +33,8 @@ import { StyleSheet, Text, View, TextInput, Button, Image }
     useEffect(() => {
         if (palavraMostra.join("").toUpperCase() === palavraForca.toUpperCase()) {
             setTimeout(() => {
-                alert(`Parabéns, você acertou!\nA palavra era: ${palavraMostra.join("")}`);
-                goBack();
+                alert(`Parabéns!\nA palavra era: ${palavraMostra.join("")}`);
+                voltar();
             }, 10);
         }
         let vidasTmp = vidas;
@@ -54,7 +52,7 @@ import { StyleSheet, Text, View, TextInput, Button, Image }
         if (palavraAdivinha.length >= 1 && palavraAdivinha.match('[A-z]+')) {
             if (palavraAdivinha.toUpperCase() === palavraForca.toUpperCase()) {
                 alert(`Parabéns!\nA palavra era: ${palavraForca}`);
-                goBack();
+                voltar();
             } else if (palavraAdivinha.length == palavraForca.length) {
                 setVidas(++vidastmp);
             } else {
@@ -91,14 +89,15 @@ import { StyleSheet, Text, View, TextInput, Button, Image }
 
             }
         } else {
-            alert("Deve conter pelo menos uma letra e apenas letras!")
+            alert("Digite apenas letras!")
         }
         setPalavraAdivinha("");
     }
 
     return (
         <View style={styles.container}>
-            <Button color="green" title="Voltar" onPress={goBack} />
+            <Text style={styles.title}>Jogo da Forca</Text>
+            <Button color="green" title="Voltar" onPress={voltar} />
 
             <Image
                 style={styles.imgForca}
@@ -110,7 +109,7 @@ import { StyleSheet, Text, View, TextInput, Button, Image }
             <Text>Tentativas: {letrasUsadas}</Text>
 
 
-            <TextInput placeholder='Digite a letra ou palavra' value={palavraAdivinha} onChangeText={setPalavraAdivinha} style={styles.input} id="abcde" />
+            <TextInput placeholder='Digite a letra ou palavra' value={palavraAdivinha} onChangeText={setPalavraAdivinha} style={styles.input} id="" />
 
             <Button color="green" title="Tentativa" onPress={checarLetra} />
 
@@ -121,10 +120,13 @@ import { StyleSheet, Text, View, TextInput, Button, Image }
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        gap: 20,
+        gap: 10,
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
+    },
+    title: {
+        fontSize: 30,
     },
     input: {
         width: '80%',
