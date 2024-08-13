@@ -12,23 +12,17 @@ export default function Memoria({ changeScreen, jogador1, jogador2 }) {
       }
 
     const generateGame = () => {
-        const emojis = ["🍕", "🍔", "🍟", "🌭", "🍿", "🥓", "🥚", "🍞", "🌮", "🥞", "🥯", "🥡", "🍗",
-            "🥐", "🍜", "🍩", "🍪", "🥩", "🍰", "🍫", "🧁", "🍚", "🍦", "🍤", "🧀", 
+        const emojis = ["🧬", "🐒", "🦋", "🌱", "🦴", "🧠", "🌳", "🦒", "🦣", "🦕", "🦖", "🦠", "👤",
 
-            "🍕", "🍔", "🍟", "🌭", "🍿", "🥓", "🥚", "🍞", "🌮", "🥞", "🥯", "🥡", "🍗",
-            "🥐", "🍜", "🍩", "🍪", "🥩", "🍰", "🍫", "🧁", "🍚", "🍦", "🍤", "🧀"];
+        "🧬", "🐒", "🦋", "🌱", "🦴", "🧠", "🌳", "🦒", "🦣", "🦕", "🦖", "🦠", "👤"];
 
         const game = [
-            ["", "", "", "", ""],
-            ["", "", "", "", ""],
-            ["", "", "", "", ""],
-            ["", "", "", "", ""],
-            ["", "", "", "", ""],
-            ["", "", "", "", ""],
-            ["", "", "", "", ""],
-            ["", "", "", "", ""],
-            ["", "", "", "", ""],
-            ["", "", "", "", ""]
+            ["", "", "", ""],
+            ["", "", "", ""],
+            ["", "", "", ""],
+            ["", "", "", ""],
+            ["", "", "", ""],
+            ["", "", "", ""]
         ];
 
         game.forEach((row) => {
@@ -132,7 +126,7 @@ export default function Memoria({ changeScreen, jogador1, jogador2 }) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Jogo da Memória</Text>
+            <Text style={styles.title}>Jogo da Memória - Evolução</Text>
             <Text style={jogador == jogador1 ? styles.jogador1 : styles.jogador2}>Quem joga é: {jogador}</Text>
             <Text style={styles.jogador1}>{jogador1}: {pares[0]}</Text>
             <Text style={styles.jogador2}>{jogador2}: {pares[1]}</Text>
