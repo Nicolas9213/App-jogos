@@ -12,9 +12,9 @@ export default function Memoria({ changeScreen, jogador1, jogador2 }) {
       }
 
     const generateGame = () => {
-        const emojis = ["🧬", "🐒", "🦋", "🌱", "🦴", "🧠", "🌳", "🦒", "🦣", "🦕", "🦖", "🦠", "👤",
+        const emojis = ["🧬", "🐒", "🦋", "🌱", "🦴", "🧠", "🌳", "🦒", "🦕", "🦖", "🦠", "👤",
 
-        "🧬", "🐒", "🦋", "🌱", "🦴", "🧠", "🌳", "🦒", "🦣", "🦕", "🦖", "🦠", "👤"];
+        "🧬", "🐒", "🦋", "🌱", "🦴", "🧠", "🌳", "🦒", "🦕", "🦖", "🦠", "👤"];
 
         const game = [
             ["", "", "", ""],
@@ -26,7 +26,7 @@ export default function Memoria({ changeScreen, jogador1, jogador2 }) {
         ];
 
         game.forEach((row) => {
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 4; i++) {
                 let index = Math.floor(Math.random() * emojis.length);
                 row[i] = emojis[index];
                 emojis.splice(index, 1);
@@ -39,16 +39,12 @@ export default function Memoria({ changeScreen, jogador1, jogador2 }) {
     const [game, setGame] = useState([...generateGame()]);
 
     const [showedGame, setShowedGame] = useState([
-        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
-        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
-        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
-        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
-        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
-        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
-        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
-        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
-        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
-        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}]
+        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
+        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
+        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
+        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
+        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}],
+        [{val: "", player:""}, {val: "", player:""}, {val: "", player:""}, {val: "", player:""}]
     ]);
 
     useEffect(() => {
@@ -57,8 +53,7 @@ export default function Memoria({ changeScreen, jogador1, jogador2 }) {
 
     const play = (row, col) => {
         let showedGameTmp = [[...showedGame[0]], [...showedGame[1]], [...showedGame[2]], [...showedGame[3]],
-        [...showedGame[4]], [...showedGame[5]], [...showedGame[6]], [...showedGame[7]], [...showedGame[8]],
-        [...showedGame[9]]];
+        [...showedGame[4]], [...showedGame[5]]];
 
         let amountClicks = clicks;
         let clickIndexes = [...indexes];
